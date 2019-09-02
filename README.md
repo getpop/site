@@ -30,12 +30,13 @@ $ composer require getpop/site-builder dev-master
 }
 ```
 
-<!--
-## Usage
+## Architecture foundations
 
-``` php
-```
--->
+Layouts are rendered through custom-built reactivity, based on observing a unique JavaScript object (which contains database and configuration data).
+
+The view is implemented through [Handlebars](https://handlebarsjs.com/) templates, which can be loaded both in the client (through the Handlebars runtime) and in the server (through PHP library [LightnCandy](https://github.com/zordius/lightncandy)). This approach is isomorphic: the same code works on both environments.
+
+Implementation coming soon.
 
 ## Change log
 
