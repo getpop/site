@@ -38,6 +38,30 @@ The view is implemented through [Handlebars](https://handlebarsjs.com/) template
 
 Implementation coming soon.
 
+## Main Concepts
+
+### Multidomain
+
+PoP has been built to support decentralization: modules can fetch their data from a different domain/subdomain from which the application is hosted. For instance, an application can have its components retrieved from subdomains:
+
+![Modules can have their data fetched from different domains and subdomains](https://uploads.getpop.org/wp-content/uploads/2017/02/site-wireframe.png)
+
+A single component is also able to have many sources of data, each of them coming from a different domain/subdomain. For instance, the [events calendar in SukiPoP.com](https://sukipop.com/en/calendar/) displays events from several external sites in a unique calendar, painting events with a different color according to the source domain:
+
+![Multidomain events calendar](https://uploads.getpop.org/wp-content/uploads/2018/12/multidomain-events-calendar.png)
+
+### Rendering through JavaScript templates
+
+Will be added soon...
+
+### Isomorphic Server-Side Rendering
+
+Will be added soon...
+
+### Reactivity
+
+Will be added soon...
+
 ## Architecture Design and Implementation
 
 #### Dataloading
