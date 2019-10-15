@@ -16,7 +16,7 @@ Create a component-based website
 Via Composer
 
 ``` bash
-$ composer require getpop/site-builder dev-master
+$ composer require getpop/site dev-master
 ```
 
 **Note:** Your `composer.json` file must have the configuration below to accept minimum stability `"dev"` (there are no releases for PoP yet, and the code is installed directly from the `master` branch):
@@ -293,17 +293,17 @@ If you discover any security related issues, please email leo@getpop.org instead
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/getpop/site-builder.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/getpop/site.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/getpop/site-builder/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/getpop/site-builder.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/getpop/site-builder.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/getpop/site-builder.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/getpop/site/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/getpop/site.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/getpop/site.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/getpop/site.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/getpop/site-builder
-[link-travis]: https://travis-ci.org/getpop/site-builder
-[link-scrutinizer]: https://scrutinizer-ci.com/g/getpop/site-builder/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/getpop/site-builder
-[link-downloads]: https://packagist.org/packages/getpop/site-builder
+[link-packagist]: https://packagist.org/packages/getpop/site
+[link-travis]: https://travis-ci.org/getpop/site
+[link-scrutinizer]: https://scrutinizer-ci.com/g/getpop/site/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/getpop/site
+[link-downloads]: https://packagist.org/packages/getpop/site
 [link-author]: https://github.com/leoloso
 [link-contributors]: ../../contributors

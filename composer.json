@@ -1,12 +1,12 @@
 {
-    "name": "getpop/site-builder",
+    "name": "getpop/site",
     "type": "library",
     "description": "Create a component-based website",
     "keywords": [
         "PoP",
-        "site-builder"
+        "site"
     ],
-    "homepage": "https://github.com/getpop/site-builder",
+    "homepage": "https://github.com/getpop/site",
     "license": "MIT",
     "authors": [
         {
@@ -19,7 +19,7 @@
     "prefer-stable": true,
     "require": {
         "php" : "~7.1",
-        "getpop/migrate-site-builder": "^1.0@dev",
+        "getpop/migrate-site": "^1.0@dev",
         "getpop/api": "^1.0@dev"
     },
     "require-dev": {
