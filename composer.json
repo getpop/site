@@ -19,7 +19,8 @@
     "prefer-stable": true,
     "require": {
         "php" : "~7.1",
-        "getpop/migrate-site-builder": "^1.0@dev"
+        "getpop/migrate-site-builder": "^1.0@dev",
+        "getpop/api": "^1.0@dev"
     },
     "require-dev": {
         "phpunit/phpunit" : ">=7.0",
