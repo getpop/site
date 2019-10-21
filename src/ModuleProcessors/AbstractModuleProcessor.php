@@ -1,8 +1,7 @@
 <?php
 namespace PoP\Site\ModuleProcessors;
 use PoP\API\ModuleProcessors\ModuleProcessorTrait;
-use PoP\Site\ModuleProcessors\ParamConstants;
-use PoP\ComponentModel\ModuleProcessors\DataloadingConstants;
+use PoP\Site\ModuleProcessors\DataloadingConstants;
 use PoP\ComponentModel\Server\Utils as ServerUtils;
 use PoP\ComponentModel\Engine_Vars;
 
@@ -18,10 +17,10 @@ abstract class AbstractModuleProcessor extends \PoP\ConfigurationComponentModel\
             $ret['multidomaindataloadsources'] = $query_multidomain_urls;
             unset($ret['dataloadsource']);
         }
-        // if ($data_properties[ParamConstants::EXTERNALLOAD]) {
+        // if ($data_properties[DataloadingConstants::EXTERNALLOAD]) {
         //     $ret['externalload'] = true;
         // }
-        if ($data_properties[ParamConstants::LAZYLOAD]) {
+        if ($data_properties[DataloadingConstants::LAZYLOAD]) {
             $ret['lazyload'] = true;
         }
 
@@ -54,21 +53,21 @@ abstract class AbstractModuleProcessor extends \PoP\ConfigurationComponentModel\
         $vars = Engine_Vars::getVars();
 
         // Is the component lazy-load?
-        $ret[ParamConstants::LAZYLOAD] = $this->isLazyload($module, $props);
+        $ret[DataloadingConstants::LAZYLOAD] = $this->isLazyload($module, $props);
 
         // Do not load data when doing lazy load, unless passing URL param ?action=loadlazy, which is needed to initialize the lazy components.
         // Do not load data for Search page (initially, before the query was submitted)
         // Do not load data when querying data from another domain, since evidently we don't have that data in this site, then the load must be triggered from the client
         $ret[DataloadingConstants::SKIPDATALOAD] =
-            (!in_array(POP_ACTION_LOADLAZY, $vars['actions'])  && $ret[ParamConstants::LAZYLOAD]) ||
-            $ret[ParamConstants::EXTERNALLOAD] ||
+            (!in_array(POP_ACTION_LOADLAZY, $vars['actions'])  && $ret[DataloadingConstants::LAZYLOAD]) ||
+            $ret[DataloadingConstants::EXTERNALLOAD] ||
             $this->getProp($module, $props, 'skip-data-load');
 
         // Use Mock DB Object Data for the Skeleton Screen
-        $ret[ParamConstants::USEMOCKDBOBJECTDATA] = $this->getProp($module, $props, 'use-mock-dbobject-data') ?? false;
+        $ret[DataloadingConstants::USEMOCKDBOBJECTDATA] = $this->getProp($module, $props, 'use-mock-dbobject-data') ?? false;
 
         // Loading data from a different site?
-        $ret[ParamConstants::EXTERNALLOAD] = $this->queriesExternalDomain($module, $props);
+        $ret[DataloadingConstants::EXTERNALLOAD] = $this->queriesExternalDomain($module, $props);
     }
 
     public function getDataloadMultidomainQuerySources(array $module, array &$props): array

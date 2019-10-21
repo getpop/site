@@ -1,10 +1,7 @@
 <?php
 namespace PoP\Site\ModuleProcessors;
 
-class ParamConstants {
-    const PARAMS = 'params';
-    const VISIBLEPARAMS = 'visibleparams';
-    const PUSHURLATTS = 'pushurlprops';
+class DataloadingConstants extends \PoP\ComponentModel\ModuleProcessors\DataloadingConstants {
     const LAZYLOAD = 'lazy-load';
     const EXTERNALLOAD = 'external-load';
     const USEMOCKDBOBJECTDATA = 'use-mock-dbobject-data';
