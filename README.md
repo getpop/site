@@ -1,4 +1,4 @@
-# Site Builder
+# Site
 
 <!--
 [![Latest Version on Packagist][ico-version]][link-packagist]
@@ -40,16 +40,6 @@ Implementation coming soon.
 
 ## Main Concepts
 
-### Multidomain
-
-PoP has been built to support decentralization: modules can fetch their data from a different domain/subdomain from which the application is hosted. For instance, an application can have its components retrieved from subdomains:
-
-![Modules can have their data fetched from different domains and subdomains](https://uploads.getpop.org/wp-content/uploads/2017/02/site-wireframe.png)
-
-A single component is also able to have many sources of data, each of them coming from a different domain/subdomain. For instance, the [events calendar in SukiPoP.com](https://sukipop.com/en/calendar/) displays events from several external sites in a unique calendar, painting events with a different color according to the source domain:
-
-![Multidomain events calendar](https://uploads.getpop.org/wp-content/uploads/2018/12/multidomain-events-calendar.png)
-
 ### Rendering through JavaScript templates
 
 Will be added soon...
@@ -67,100 +57,6 @@ Will be added soon...
 #### Dataloading
 
 #### Dataloading Modules
-
-##### Lazy-Loading
-
-We can instruct a dataloading module to be lazy-loaded (i.e. instead of fetching its database data immediately, it is fetched on a subsequent request from the client) simply by setting its prop `"lazy-load"` to `true`:
-
-```php
-function initModelProps($module, &$props) 
-{
-  switch ($module[1]) {
-    case self::MODULE_AUTHORARTICLES:
-
-      // Set the content lazy
-      $this->setProp($module, $props, 'lazy-load', true);
-      break;
-  }
-
-  parent::initModelProps($module, $props);
-}
-```
-
-Being a prop, this value can be set either by the dataloading module itself, or by any of its ancestor modules:
-
-```php
-function initModelProps($module, &$props) 
-{
-  switch ($module[1]) {
-    case self::MODULE_AUTHORARTICLESWRAPPER:
-
-      // Set the content lazy
-      $this->setProp([MODULE_AUTHORARTICLES], $props, 'lazy-load', true);
-      break;
-  }
-
-  parent::initModelProps($module, $props);
-}
-```
-
-Among others, the following are several uses cases for lazy-loading the data for a module:
-
-- Modules which are displayed on several pages (eg: a "latest posts" widget on a sidebar) can have its data cached in the client (eg: through Service Workers, localStorage, etc) and, by lazy-loading, this data is not fetched again on the server on each request
-- Fetching data from a different domain
-- Improve apparent loading speed by lazy-loading data for below-the-fold modules (eg: a post's comments)
-- Fetching data with user state on a page without user state ([as outlined here](https://www.smashingmagazine.com/2018/12/caching-smartly-gutenberg/))
-
-### Multidomain
-
-By default, a module will fetch its data from the domain where the application is hosted. To change this to a different domain(s) or subdomain(s) is done by setting prop `"dataload-multidomain-sources"` on the module:
-
-```php
-function initModelProps($module, &$props) {
-    
-  switch ($module[1]) {
-    case self::MODULE_SOMENAME:
-
-      $this->setProp(
-        $module, 
-        $props, 
-        'dataload-multidomain-sources', 
-        'https://anotherdomain.com'
-      );
-      break;
-  }
-
-  parent::initModelProps($module, $props);
-}
-```
-
-We can also pass an array of domains, in which case the module will fetch its data from all of them:
-
-```php
-function initModelProps($module, &$props) {
-    
-  switch ($module[1]) {
-    case self::MODULE_SOMENAME:
-
-      $this->setProp(
-        $module, 
-        $props, 
-        'dataload-multidomain-sources', 
-        array(
-          'https://anotherdomain1.com',
-          'https://subdomain.anotherdomain2.com',
-          'https://www.anotherdomain3.com',
-        );
-      break;
-  }
-
-  parent::initModelProps($module, $props);
-}
-```
-
-When fetching data from several sources, each source will keep its own state in the [QueryInputOutputHandler](#queryhandler). Then, it is able to query different amounts of data from different domains (eg: 3 results from domain1.com and 6 results from domain2.com), and stop querying from a particular domain when it has no more results.
-
-Because the external site may have different components installed, it is not guaranteed that fetching data from the external site by simply adding `?output=json` will bring the data required by the origin site. To solve this issue, when querying data from an external site, PoP will use the [custom-querying API](#Custom-Querying-API) to fetch exactly the required data fields (this works for fetching database data, not configuration). If we have control on the external site and we can guarantee that both sites have the same components installed, then we can define constant `EXTERNAL_SITES_RUN_SAME_SOFTWARE` as true, which will allow to fetch database and configuration data through the regular `?output=json` request.
 
 ### Handlebars
 
@@ -265,6 +161,10 @@ The native API can be extended by adding the other layers (configuration, view) 
 - Alternative models for the "Who we are" page: [Normal](https://nextapi.getpop.org/who-we-are/?output=json&mangled=none&dataoutputmode=combined), [Printable](https://nextapi.getpop.org/who-we-are/?output=json&mangled=none&thememode=print&dataoutputmode=combined), [Embeddable](https://nextapi.getpop.org/who-we-are/?output=json&mangled=none&thememode=embed&dataoutputmode=combined)
 - Changing the module names: [original](https://nextapi.getpop.org/?output=json&mangled=none&dataoutputmode=combined) vs [mangled](https://nextapi.getpop.org/?output=json&dataoutputmode=combined)
 - Filtering information: [only module settings](https://nextapi.getpop.org/?output=json&dataoutputitems[]=modulesettings&dataoutputmode=combined&mangled=none), [module data plus database data](https://nextapi.getpop.org/?output=json&dataoutputitems[]=databases&dataoutputitems[]=moduledata&dataoutputmode=combined&mangled=none)
+
+---
+---
+---
 
 ## Change log
 
