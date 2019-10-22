@@ -1,0 +1,4 @@
+services:
+    engine:
+        class: \PoP\Site\Engine\Engine
+        public: true
