@@ -1,7 +1,7 @@
 <?php
 namespace PoP\Site\Config;
 
-use PoP\ResourceLoader\Resources\DefinitionGroups;
+use PoP\Resources\DefinitionGroups;
 use PoP\Root\Component\PHPServiceConfigurationTrait;
 use PoP\ComponentModel\Container\ContainerBuilderUtils;
 
