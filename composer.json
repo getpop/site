@@ -19,9 +19,9 @@
     "prefer-stable": true,
     "require": {
         "php" : "~7.1",
-        "getpop/application": "^1.0@dev",
-        "getpop/definitions-base36": "dev-master",
-        "getpop/resources": "^1.0@dev"
+        "getpop/application": "~0.1",
+        "getpop/definitions-base36": "~0.1",
+        "getpop/resources": "~0.1"
     },
     "require-dev": {
         "phpunit/phpunit" : ">=7.0",
