@@ -21,7 +21,7 @@
         "php" : "~7.1",
         "getpop/application": "~0.1",
         "getpop/definitions-base36": "~0.1",
-        "getpop/resources": "~0.1"
+        "getpop/resourceloader": "~0.1"
     },
     "require-dev": {
         "phpstan/phpstan": "^0.12",
