@@ -16,6 +16,15 @@ class Component extends AbstractComponent
     use YAMLServicesTrait;
     // const VERSION = '0.1.0';
 
+    public static function getDependedComponentClasses(): array
+    {
+        return [
+            \PoP\Application\Component::class,
+            \PoP\Base36Definitions\Component::class,
+            \PoP\ResourceLoader\Component::class,
+        ];
+    }
+
     /**
      * Initialize services
      */
