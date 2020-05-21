@@ -20,6 +20,14 @@ Via Composer
 composer require getpop/site
 ```
 
+## Usage
+
+Initialize the component:
+
+``` php
+\PoP\Site\Component::initialize();
+```
+
 ## Architecture foundations
 
 Layouts are rendered through custom-built reactivity, based on observing a unique JavaScript object (which contains database and configuration data).
