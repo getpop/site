@@ -12,7 +12,7 @@ class ServiceConfiguration
 {
     use PHPServiceConfigurationTrait;
 
-    protected static function configure()
+    protected static function configure(): void
     {
         // Set the definition resolver
         ContainerBuilderUtils::injectValuesIntoService(
