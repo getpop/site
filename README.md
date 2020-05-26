@@ -25,7 +25,9 @@ composer require getpop/site
 Initialize the component:
 
 ``` php
-\PoP\Site\Component::initialize();
+\PoP\Root\ComponentLoader::initializeComponents([
+    \PoP\Site\Component::class,
+]);
 ```
 
 ## Architecture foundations
