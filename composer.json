@@ -20,7 +20,7 @@
     "require": {
         "php": "~7.2",
         "getpop/application": "dev-master",
-        "getpop/definitions-base36": "~0.1",
+        "getpop/definitions-base36": "dev-master",
         "getpop/resourceloader": "dev-master"
     },
     "require-dev": {
