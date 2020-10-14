@@ -1,4 +1,6 @@
 services:
-    engine:
-        class: \PoP\Site\Engine\Engine
+    _defaults:
         public: true
+
+    PoP\ComponentModel\Engine\EngineInterface:
+        class: \PoP\Site\Engine\Engine
