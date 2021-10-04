@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace PoP\Site\Engine;
 
-use Symfony\Contracts\Service\Attribute\Required;
-use PoP\ComponentModel\HelperServices\ApplicationStateHelperServiceInterface;
 use PoP\Application\Engine\Engine as UpstreamEngine;
+use PoP\ComponentModel\HelperServices\ApplicationStateHelperServiceInterface;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class Engine extends UpstreamEngine
 {
     protected ApplicationStateHelperServiceInterface $applicationStateHelperService;
 
     #[Required]
-    public function autowireSiteEngine(
+    final public function autowireSiteEngine(
         ApplicationStateHelperServiceInterface $applicationStateHelperService
     ): void {
         $this->applicationStateHelperService = $applicationStateHelperService;
